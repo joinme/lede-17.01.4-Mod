@@ -195,6 +195,7 @@ platform_check_image() {
 	zbt-wr8305rt|\
 	zte-q7|\
 	youku-yk1|\
+	h351-n|\
 	hd51-n|\
 	dw22d)
 		[ "$magic" != "27051956" ] && {
