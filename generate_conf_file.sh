@@ -134,6 +134,7 @@ process_devices $devices "1004kc"
 devices=(
 	"ramips_mt7620_DEVICE_y1s"
 	"ramips_mt7620_DEVICE_youku-yk1"
+	"ramips_mt7620_DEVICE_h351-n"
 	"ramips_mt7620_DEVICE_hd51-n"
 	"ramips_mt7620_DEVICE_domywifi-dw22d-v1"
 	"ramips_mt7620_DEVICE_domywifi-dw22d-v2"
