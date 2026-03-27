@@ -685,6 +685,9 @@ ramips_board_detect() {
 	*"YK1")
 		name="youku-yk1"
 		;;
+	*"100MI NETBOX H351-N")
+		name="h351-n"
+		;;
 	*"100MI NETBOX HD51-N")
 		name="hd51-n"
 		;;
