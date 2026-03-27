@@ -226,6 +226,7 @@ ramips_setup_interfaces()
 	zbt-wg2626|\
 	zbt-wg3526|\
 	zbt-wr8305rt|\
+	h351-n|\
 	hd51-n|\
 	rg-nbr700gw|\
 	link7)
