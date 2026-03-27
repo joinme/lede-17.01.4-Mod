@@ -13,15 +13,15 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  SOURCE_REPO: HiGarfield/lede-17.01.4-Mod
+  SOURCE_REPO: joinme/lede-17.01.4-Mod
 
 jobs:
   repository_dispatch:
-    if: ${{ github.repository == 'HiGarfield/lede-17.01.4-Mod' && github.event_name == 'push' }}
+    if: ${{ github.repository == 'joinme/lede-17.01.4-Mod' && github.event_name == 'push' }}
     runs-on: ubuntu-24.04
     permissions: {}
     steps:
-      - uses: HiGarfield/repository-dispatch@main
+      - uses: joinme/repository-dispatch@main
         with:
           token: ${{ secrets.MY_TOKEN }}
           repository: ${{ secrets.SECOND_REPO }}
@@ -46,7 +46,7 @@ jobs:
           fi
           echo "lede_version=$v" >> $GITHUB_OUTPUT
 
-      - uses: HiGarfield/action-gh-release@master
+      - uses: joinme/action-gh-release@master
         with:
           tag_name: ${{ steps.version.outputs.lede_version }}
           make_latest: true
@@ -162,7 +162,7 @@ jobs:
           arch=$(sed -n 's/^CONFIG_TARGET_BOARD="\(.*\)"/\1/p' conf/.config.$TARGET_DEVICE)
           echo "key=$arch-$(gcc --version | sha1sum | cut -c1-8)" >> $GITHUB_OUTPUT
 
-      - uses: HiGarfield/cachewrtbuild@main
+      - uses: joinme/cachewrtbuild@main
         if: ${{ env.TARGET_DEVICE != 'dl' }}
         with:
           ccache: true
@@ -195,7 +195,7 @@ jobs:
             zip -j ${OUTPUT_DIR}/${OUTPUT_NAME}.zip dl/*
           fi
 
-      - uses: HiGarfield/action-gh-release@master
+      - uses: joinme/action-gh-release@master
         with:
           tag_name: ${{ env.LEDE_VERSION }}
           files: ${{ env.OUTPUT_DIR }}/*
@@ -213,7 +213,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: HiGarfield/delete-release-action@master
+      - uses: joinme/delete-release-action@master
         continue-on-error: true
         with:
           release-drop: true
