@@ -16,19 +16,6 @@ env:
   SOURCE_REPO: joinme/lede-17.01.4-Mod
 
 jobs:
-  repository_dispatch:
-    if: ${{ github.repository == 'joinme/lede-17.01.4-Mod' && github.event_name == 'push' }}
-    runs-on: ubuntu-24.04
-    permissions: {}
-    steps:
-      # 替换：官方通用仓库事件触发
-      - name: Trigger remote repository dispatch
-        uses: peter-evans/repository-dispatch@v3
-        with:
-          token: ${{ secrets.MY_TOKEN }}
-          repository: ${{ secrets.SECOND_REPO }}
-          event-type: ${{ github.event.head_commit.message }}
-
   create_release:
     runs-on: ubuntu-24.04
     permissions:
