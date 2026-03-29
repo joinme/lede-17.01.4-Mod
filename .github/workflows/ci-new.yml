@@ -27,12 +27,16 @@ jobs:
 
       - id: version
         run: |
-          if [ -f version ]; then
-            v=$(cat version)
-          else
-            git clone https://github.com/${SOURCE_REPO}.git source
-            v=$(cat source/version)
-          fi
+          # if [ -f version ]; then
+          #   v=$(cat version)
+          # else
+          #   git clone https://github.com/${SOURCE_REPO}.git source
+          #   v=$(cat source/version)
+          # fi
+          # echo "lede_version=$v" >> $GITHUB_OUTPUT
+          
+          # 直接生成 纯数字时间戳：年月日时分秒 (例：20260329154230)
+          v=$(date +%Y%m%d%H%M%S)
           echo "lede_version=$v" >> $GITHUB_OUTPUT
 
       # 替换：官方推荐 Release 创建工具
@@ -81,7 +85,7 @@ jobs:
           if [ "$TARGET_DEVICE" = "dl" ]; then
             name=dl-${LEDE_VERSION}
           else
-            name=lede-${LEDE_VERSION}-${TARGET_DEVICE}
+            name=lede-${TARGET_DEVICE}-${LEDE_VERSION}
           fi
           echo "OUTPUT_NAME=$name" >> $GITHUB_ENV
           echo "OUTPUT_DIR=$WORKING_DIR/out" >> $GITHUB_ENV
