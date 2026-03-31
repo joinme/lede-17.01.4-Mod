@@ -7,7 +7,7 @@
 
 / {
 	compatible = "100MI,H351-N", "ralink,mt7620a-soc";
-	model = "100MI NETBOX H351-N";
+	model = "100MI H351-N";
 
 	gpio-leds {
 		compatible = "gpio-leds";
