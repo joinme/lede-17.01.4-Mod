@@ -1,8 +1,8 @@
 name: CI
 
 on:
-  push:
-    branches: [master]
+  # push:
+  #   branches: [master]
   workflow_dispatch:
 
 permissions:
@@ -16,16 +16,16 @@ env:
   SOURCE_REPO: joinme/lede-17.01.4-Mod
 
 jobs:
-  repository_dispatch:
-    if: ${{ github.repository == 'joinme/lede-17.01.4-Mod' && github.event_name == 'push' }}
-    runs-on: ubuntu-24.04
-    permissions: {}
-    steps:
-      - uses: HiGarfield/repository-dispatch@main
-        with:
-          token: ${{ secrets.MY_TOKEN }}
-          repository: ${{ secrets.SECOND_REPO }}
-          event-type: ${{ github.event.head_commit.message }}
+  # repository_dispatch:
+  #   if: ${{ github.repository == 'joinme/lede-17.01.4-Mod' && github.event_name == 'push' }}
+  #   runs-on: ubuntu-24.04
+  #   permissions: {}
+  #   steps:
+  #     - uses: HiGarfield/repository-dispatch@main
+  #       with:
+  #         token: ${{ secrets.MY_TOKEN }}
+  #         repository: ${{ secrets.SECOND_REPO }}
+  #         event-type: ${{ github.event.head_commit.message }}
 
   create_release:
     runs-on: ubuntu-24.04
